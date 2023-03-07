@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:30:29 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/07 17:21:21 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/02 21:59:09 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-# include "Animal.hpp"
+# include "WrongAnimal.hpp"
 
-class Cat : public Animal
+class WrongCat : public WrongAnimal
 {
 	public:
 		// Constructors
-		Cat(void);
-		Cat(const Cat &copy);
+		WrongCat();
+		WrongCat(const WrongCat &copy);
+		WrongCat(string type);
 		
 		// Destructor
-		~Cat();
+		~WrongCat();
 
-		virtual void makeSound(void) const;
+		void makeSound(void) const;
+		
+	private:
+		string _type;
 };
 
 #endif

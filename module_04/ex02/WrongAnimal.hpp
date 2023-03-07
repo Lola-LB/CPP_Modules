@@ -1,31 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:30:29 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/07 17:21:21 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/02 21:59:08 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-# include "Animal.hpp"
+# include <iostream>
+# include <string>
 
-class Cat : public Animal
+using namespace std;
+
+class WrongAnimal
 {
 	public:
 		// Constructors
-		Cat(void);
-		Cat(const Cat &copy);
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal &copy);
 		
 		// Destructor
-		~Cat();
+		~WrongAnimal();
+		
+		// Operators
+		WrongAnimal & operator=(const WrongAnimal &assign);
+		
+		// Getters / Setters
+		string getType() const;
 
-		virtual void makeSound(void) const;
+		void makeSound(void) const;
+		
+	protected:
+		string _type;
+		
 };
 
 #endif

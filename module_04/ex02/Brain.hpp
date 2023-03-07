@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 20:30:29 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/07 17:21:21 by lle-bret         ###   ########.fr       */
+/*   Created: 2023/03/02 22:18:13 by lle-bret          #+#    #+#             */
+/*   Updated: 2023/03/03 18:12:30 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-# include "Animal.hpp"
+# include <iostream>
+# include <string>
 
-class Cat : public Animal
+using namespace std;
+class Brain
 {
 	public:
 		// Constructors
-		Cat(void);
-		Cat(const Cat &copy);
+		Brain(void);
+		Brain(const Brain &copy);
+		Brain(const string* ideas);
 		
 		// Destructor
-		~Cat();
-
-		virtual void makeSound(void) const;
+		~Brain();
+		
+		// Operators
+		Brain & operator=(const Brain &assign);
+		
+	private:
+		string _ideas[100];
 };
 
 #endif

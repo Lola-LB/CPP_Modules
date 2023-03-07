@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 20:30:29 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/07 17:21:21 by lle-bret         ###   ########.fr       */
+/*   Created: 2023/03/05 20:18:35 by lle-bret          #+#    #+#             */
+/*   Updated: 2023/03/07 18:38:28 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
-# include "Animal.hpp"
+# include <iostream>
+# include <string>
 
-class Cat : public Animal
+using namespace std;
+
+class ICharacter;
+
+class AMateria
 {
+	protected:
+		string _type;
+	
 	public:
 		// Constructors
-		Cat(void);
-		Cat(const Cat &copy);
-		
-		// Destructor
-		~Cat();
+		AMateria(void);
+		AMateria(string const & type);
+		AMateria(const AMateria &copy);
 
-		virtual void makeSound(void) const;
+		// Destructor
+		virtual ~AMateria();
+		std::string const & getType() const;
+
+		// Other member functions
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
 };
 
 #endif
