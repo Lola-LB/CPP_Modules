@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 22:18:13 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/09 18:24:32 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:55:31 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define BRAIN_HPP
 
 # include <iostream>
-
-
 
 class Brain
 {

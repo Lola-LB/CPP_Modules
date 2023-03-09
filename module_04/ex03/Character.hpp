@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:43:01 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/09 18:24:32 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:55:53 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 # define CHARACTER_CPP
 
 # include <iostream>
-
-
 # include "ICharacter.hpp"
-
-
 
 class Character : public ICharacter
 {
