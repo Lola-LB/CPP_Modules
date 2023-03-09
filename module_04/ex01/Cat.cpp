@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:30:25 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/03 18:24:25 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:10:15 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,41 @@
 // Constructors
 Cat::Cat(void) : Animal("Cat")
 {
-	cout << "Default Constructor called of Cat" << endl;
+	std::cout << "Default Constructor called of Cat" << std::endl;
 	try {
         _brain = new Brain();
     }
     catch (const bad_alloc& e) {
-        cout << "Memory Allocation has failed : " << e.what() << endl;
+        std::cout << "Memory Allocation has failed : " << e.what() << std::endl;
     }
 }
 
 Cat::Cat(const Cat &copy) : Animal(copy)
 {
-	cout << "Copy Constructor called of Cat" << endl;
+	std::cout << "Copy Constructor called of Cat" << std::endl;
 	try {
         _brain = new Brain(*copy._brain);;
     }
     catch (const bad_alloc& e) {
-        cout << "Memory Allocation has failed : " << e.what() << endl;
+        std::cout << "Memory Allocation has failed : " << e.what() << std::endl;
     }
 }
 
 Cat::Cat(const Brain brain) : Animal("Cat")
 {
-	cout << "Field Constructor called of Cat" << endl;
+	std::cout << "Field Constructor called of Cat" << std::endl;
 	try {
         _brain = new Brain(brain);;
     }
     catch (const bad_alloc& e) {
-        cout << "Memory Allocation has failed : " << e.what() << endl;
+        std::cout << "Memory Allocation has failed : " << e.what() << std::endl;
     }
 }
 
 // Operators
 Cat & Cat::operator=(const Cat &assign)
 {
-	cout << "Copy assignment operator called of Cat" << endl;
+	std::cout << "Copy assignment operator called of Cat" << std::endl;
 	if (this != &assign)
 	{
 		_type = assign._type;
@@ -62,12 +62,12 @@ Cat & Cat::operator=(const Cat &assign)
 Cat::~Cat()
 {
 	delete _brain;
-	cout << "Destructor called of Cat" << endl;
+	std::cout << "Destructor called of Cat" << std::endl;
 }
 
 // Member functions
 
 void Cat::makeSound(void) const
 {
-	cout << "Meow!" << endl;
+	std::cout << "Meow!" << std::endl;
 }

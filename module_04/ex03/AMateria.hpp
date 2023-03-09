@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:18:35 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/07 18:38:28 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:24:32 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 # define AMATERIA_HPP
 
 # include <iostream>
-# include <string>
 
-using namespace std;
+
+
 
 class ICharacter;
 
 class AMateria
 {
 	protected:
-		string _type;
+		std::string _type;
 	
 	public:
 		// Constructors
 		AMateria(void);
-		AMateria(string const & type);
+		AMateria(std::string const & type);
 		AMateria(const AMateria &copy);
 
 		// Destructor

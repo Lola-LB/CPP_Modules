@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:44:58 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/02/24 16:03:34 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:10:29 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ int main(int ac, char **av)
 {
 	Harl	harl;
 	if (ac > 1)
-		harl.complain(string(av[1]));
+		harl.complain(std::string(av[1]));
 	return (0);
 }

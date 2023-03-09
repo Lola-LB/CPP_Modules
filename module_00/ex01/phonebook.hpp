@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:26:20 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/02/20 13:50:25 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:16:12 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,15 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <iomanip>
-# include <cstring>
-
-using namespace std;
 
 class Contact
 {
 	public:
-		string	first_name;
-		string	last_name;
-		string	nickname;
-		string	phone_number;
-		string	darkest_secret;
+		std::string	first_name;
+		std::string	last_name;
+		std::string	nickname;
+		std::string	phone_number;
+		std::string	darkest_secret;
 };
 
 class PhoneBook

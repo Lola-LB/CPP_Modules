@@ -10,7 +10,7 @@ FLAGS	= -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 RM		= rm -f
 
-NAME	= diamond
+NAME	= scav
 
 %.o: %.cpp
 	$(CC) $(FLAGS) -c $< -o $@

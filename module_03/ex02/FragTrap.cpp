@@ -6,36 +6,43 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:16:58 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/02 15:39:37 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:46:09 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void)
+FragTrap::FragTrap(void) : ClapTrap()
 {
 	_HitPoints = 100;
 	_EnergyPoints = 100;
 	_AttackDamage = 30;
-	cout << "Default Constructor called of FragTrap" << endl;
+	std::cout << "Default Constructor called of FragTrap" << std::endl;
 }
 
-FragTrap::FragTrap(string name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	_Name = name;
 	_HitPoints = 100;
 	_EnergyPoints = 100;
 	_AttackDamage = 30;
-	cout << "Fields Constructor called of FragTrap" << endl;
+	std::cout << "Fields Constructor called of FragTrap" << std::endl;
+}
+
+FragTrap::FragTrap(FragTrap & copy) : ClapTrap(copy.getName())
+{
+	_HitPoints = copy.getHitPoints();
+	_EnergyPoints = copy.getEnergyPoints();
+	_AttackDamage = copy.getAttackDamage();
+	std::cout << "Copy Constructor called of FragTrap" << std::endl;
 }
 
 // Destructor
 FragTrap::~FragTrap(void)
 {
-	cout << "Destructor called of FragTrap" << endl;
+	std::cout << "Destructor called of FragTrap" << std::endl;
 }
 
 void FragTrap::highFivesGuys(void)
 {
-	cout << "C'mon guys give me a high five !" << endl;
+	std::cout << "C'mon guys give me a high five !" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:37:24 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/05 20:16:19 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:10:29 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(void)
     }
 
 	// Animal* animals		= new Animal[10];
-	// string*	ideas		= new string[100];
+	// std::string*	ideas		= new std::string[100];
 	// const Brain brain(ideas);
 
 	// ideas[0] = "ceci est un test";
@@ -42,7 +42,7 @@ int main(void)
 	
 	// for (size_t i = 0; i < 5; i++)
 	// {
-	// 	cout << i << endl;
+	// 	std::cout << i << std::endl;
 	// 	animals[i] = Dog(brain);
 	// }
 	// for (size_t i = 5; i < 10; i++)

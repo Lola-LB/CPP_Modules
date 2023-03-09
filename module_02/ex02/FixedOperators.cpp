@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Operators.cpp                                      :+:      :+:    :+:   */
+/*   FixedOperators.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 18:34:46 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/02 12:31:50 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:15:46 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Fixed & Fixed::operator=(const Fixed &assign)
 {
-//	cout << "Copy assignment operator called" << endl;
+//	std::cout << "Copy assignment operator called" << std::endl;
 	_RawBits = assign.getRawBits();
 	return (*this);
 }
 
-ostream& operator<<(ostream& os, const Fixed& f)
+std::ostream& operator<<(std::ostream& os, const Fixed& f)
 {
     os << f.toFloat();
 	return (os);

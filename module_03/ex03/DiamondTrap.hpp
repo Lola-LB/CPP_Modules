@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:15:37 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/02 16:49:07 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:10:29 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 	public:
 		// Constructors
 		DiamondTrap(void);
-		DiamondTrap(string name);
+		DiamondTrap(std::string name);
 
 		// Destructor
 		~DiamondTrap(void);
@@ -30,7 +30,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		void whoAmI(void);
 	
 	private:
-		string _Name;
+		std::string _Name;
 };
 
 #endif

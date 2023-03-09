@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:27:19 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/02 13:09:53 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:16:12 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <cmath>
 # include "Fixed.hpp"
 
-using namespace std;
+
 
 class Point
 {

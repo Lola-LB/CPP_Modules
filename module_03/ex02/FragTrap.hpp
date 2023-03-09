@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:15:37 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/02 16:01:56 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:45:12 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ class FragTrap : virtual public ClapTrap
 	public:
 		// Constructors
 		FragTrap(void);
-		FragTrap(string name);
+		FragTrap(std::string name);
+		FragTrap(FragTrap & copy);
 
 		// Destructor
 		~FragTrap(void);

@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 21:57:14 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/03 18:40:41 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:10:29 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 WrongAnimal::WrongAnimal()
 {
 	_type = "WrongAnimal";
-	cout << "Default Constructor called of WrongAnimal" << endl;
+	std::cout << "Default Constructor called of WrongAnimal" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
 	_type = copy.getType();
-	cout << "Copy Constructor called of WrongAnimal" << endl;
+	std::cout << "Copy Constructor called of WrongAnimal" << std::endl;
 }
 
 // Destructor
 WrongAnimal::~WrongAnimal()
 {
-	cout << "Destructor called of WrongAnimal" << endl;
+	std::cout << "Destructor called of WrongAnimal" << std::endl;
 }
 
 
@@ -41,12 +41,12 @@ WrongAnimal & WrongAnimal::operator=(const WrongAnimal &assign)
 
 
 // Getters / Setters
-string WrongAnimal::getType() const
+std::string WrongAnimal::getType() const
 {
 	return _type;
 }
 
 void WrongAnimal::makeSound(void) const
 {
-	cout << "Rawrrr" << endl;
+	std::cout << "Rawrrr" << std::endl;
 }
