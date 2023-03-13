@@ -11,9 +11,9 @@ INC		= AMateria.hpp		\
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CC		= c++ -g3
+CC		= c++
 
-FLAGS	= -Wall -Wextra -Werror -std=c++98 -Wshadow
+FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 RM		= rm -f
 
