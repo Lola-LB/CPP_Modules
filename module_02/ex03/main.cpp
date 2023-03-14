@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:59:50 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/02 13:09:07 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:10:15 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ int main( void ) {
 	Point c(0, 1);
 	Point x(0, 0);
 	
-	cout << bsp(a, b, c, x) << endl;
+	std::cout << bsp(a, b, c, x) << std::endl;
 	return 0;
 }

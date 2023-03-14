@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:30:29 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/02 21:59:08 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:55:25 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define WRONGANIMAL_HPP
 
 # include <iostream>
-# include <string>
-
-using namespace std;
 
 class WrongAnimal
 {
@@ -32,12 +29,12 @@ class WrongAnimal
 		WrongAnimal & operator=(const WrongAnimal &assign);
 		
 		// Getters / Setters
-		string getType() const;
+		std::string getType() const;
 
 		void makeSound(void) const;
 		
 	protected:
-		string _type;
+		std::string _type;
 		
 };
 

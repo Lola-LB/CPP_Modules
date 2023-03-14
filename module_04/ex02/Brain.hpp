@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 22:18:13 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/03 18:12:30 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:55:31 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 # define BRAIN_HPP
 
 # include <iostream>
-# include <string>
 
-using namespace std;
 class Brain
 {
 	public:
 		// Constructors
 		Brain(void);
 		Brain(const Brain &copy);
-		Brain(const string* ideas);
+		Brain(const std::string* ideas);
 		
 		// Destructor
 		~Brain();
@@ -32,7 +30,7 @@ class Brain
 		Brain & operator=(const Brain &assign);
 		
 	private:
-		string _ideas[100];
+		std::string _ideas[100];
 };
 
 #endif

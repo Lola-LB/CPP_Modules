@@ -5,20 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 13:39:15 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/09 18:52:44 by lle-bret         ###   ########.fr       */
+/*   Created: 2023/03/13 11:45:03 by lle-bret          #+#    #+#             */
+/*   Updated: 2023/03/13 12:25:26 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+# include "ScalarConverter.hpp"
 
-int main (void)
+int	main(int ac, char **av)
 {
-	DiamondTrap diamond("diamond");
-
-	std::cout << "Attack damage (30) " << diamond.getAttackDamage() << std::endl;
-	std::cout << "Energy points (50) " << diamond.getEnergyPoints() << std::endl;
-	std::cout << "Hit points (100) " << diamond.getHitPoints() << std::endl;
-	diamond.attack("test");
-	diamond.whoAmI();
+	if (ac != 2)
+	{
+		std::cout << "Wrong arguments" << std::endl;
+		return (1);
+	}
+	ScalarConverter::convert(av[1]);
 }

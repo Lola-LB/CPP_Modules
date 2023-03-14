@@ -15,25 +15,25 @@
 // Constructors
 Fixed::Fixed()
 {
-	//cout << "Default Constructor called" << endl;
+	//std::cout << "Default Constructor called" << std::endl;
 	_RawBits = 0;
 }
 
 Fixed::Fixed(const Fixed &copy)
 {
-	//cout << "Copy Constructor called" << endl;
+	//std::cout << "Copy Constructor called" << std::endl;
 	_RawBits = copy.getRawBits();
 }
 
 Fixed::Fixed(const int n)
 {
-	//cout << "Int Constructor called" << endl;
+	//std::cout << "Int Constructor called" << std::endl;
 	_RawBits = n << _FracBits;
 }
 
 Fixed::Fixed(const float f)
 {
-	//cout << "Float Constructor called" << endl;
+	//std::cout << "Float Constructor called" << std::endl;
 	_RawBits = (int(roundf(f)) << _FracBits)
 		+ int(roundf((f - roundf(f)) * float(1 << _FracBits)));
 }
@@ -41,18 +41,18 @@ Fixed::Fixed(const float f)
 // Destructor
 Fixed::~Fixed()
 {
-	//cout << "Destructor called" << endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 // Getters / Setters
 int Fixed::getRawBits() const
 {
-	//cout << "getRawBits member function called" << endl;
+	//std::cout << "getRawBits member function called" << std::endl;
 	return _RawBits;
 }
 
 void Fixed::setRawBits( int const raw )
 {
 	_RawBits = raw;
-	//cout << "setRawBits member function called" << endl;
+	//std::cout << "setRawBits member function called" << std::endl;
 }

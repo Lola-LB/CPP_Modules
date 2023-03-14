@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:30:29 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/02 22:12:40 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:53:54 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define ANIMAL_HPP
 
 # include <iostream>
-# include <string>
-
-using namespace std;
 
 class Animal
 {
@@ -32,12 +29,12 @@ class Animal
 		Animal & operator=(const Animal &assign);
 		
 		// Getters / Setters
-		string getType() const;
+		std::string getType() const;
 
 		virtual void makeSound(void) const;
 		
 	protected:
-		string _type;
+		std::string _type;
 };
 
 #endif

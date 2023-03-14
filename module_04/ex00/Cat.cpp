@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:30:25 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/02 21:53:23 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:10:15 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@
 Cat::Cat() : Animal()
 {
 	_type = "Cat";
-	cout << "Default Constructor called of Cat" << endl;
+	std::cout << "Default Constructor called of Cat" << std::endl;
 }
 
 Cat::Cat(const Cat &copy) : Animal(copy)
 {
 	_type = copy.getType();
-	cout << "Copy Constructor called of Cat" << endl;
+	std::cout << "Copy Constructor called of Cat" << std::endl;
 }
 
 // Destructor
 Cat::~Cat()
 {
-	cout << "Destructor called of Cat" << endl;
+	std::cout << "Destructor called of Cat" << std::endl;
 }
 
 // Member functions
 
 void Cat::makeSound(void) const
 {
-	cout << "Meow!" << endl;
+	std::cout << "Meow!" << std::endl;
 }

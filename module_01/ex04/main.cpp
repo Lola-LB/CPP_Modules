@@ -6,16 +6,16 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:44:58 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/02/22 15:39:58 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:14:21 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "replace.hpp"
 
-void	ft_replace(fstream& file, fstream& file_replace, string s1, string s2)
+void	ft_replace(std::fstream& file, std::fstream& file_replace, std::string s1, std::string s2)
 {
-	string	content;
-	string	line;
+	std::string	content;
+	std::string	line;
 	size_t	pos;
 	size_t	tmp;
 
@@ -28,7 +28,7 @@ void	ft_replace(fstream& file, fstream& file_replace, string s1, string s2)
 	}
 	tmp = 0;
 	pos = content.find(s1, 0);
-	while (pos != string::npos)
+	while (pos != std::string::npos)
 	{
 		file_replace << content.substr(tmp, pos - tmp);
 		file_replace << s2;
@@ -40,26 +40,26 @@ void	ft_replace(fstream& file, fstream& file_replace, string s1, string s2)
 
 int main(int ac, char **av)
 {
-	fstream	file;
-	fstream	file_replace;
+	std::fstream	file;
+	std::fstream	file_replace;
 
 	if (ac != 4)
 	{
-		cout << "Wrong number of parameters (expected 3)." << endl;
+		std::cout << "Wrong number of parameters (expected 3)." << std::endl;
 		return (0);
 	}
-	file.open(av[1], ios::in);
+	file.open(av[1], std::ios::in);
 	if (!file)
 	{
-		cout << "File could not be opened." << endl;
+		std::cout << "File could not be opened." << std::endl;
 		return (0);
 	}
-	file_replace.open(string(av[1]) + string("_replace"), ios::out);
+	file_replace.open(std::string(av[1]) + std::string("_replace"), std::ios::out);
 	if (!file_replace)
-		cout << "Failed to create new file." << endl;
+		std::cout << "Failed to create new file." << std::endl;
 	else
 	{
-		ft_replace(file, file_replace, string(av[2]), string(av[3]));
+		ft_replace(file, file_replace, std::string(av[2]), std::string(av[3]));
 		file_replace.close();
 	}
 	file.close();

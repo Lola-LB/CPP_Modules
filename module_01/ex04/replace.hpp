@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:26:49 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/02/22 14:46:51 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:16:12 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <iostream>
 # include <fstream>
 
-using namespace std;
-
-void	ft_replace(fstream& file, fstream& file_replace, string s1, string s2);
+void	ft_replace(std::fstream& file, std::fstream& file_replace, std::string s1, std::string s2);
 
 #endif

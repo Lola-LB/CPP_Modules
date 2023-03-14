@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:46:58 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/02/22 13:58:39 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:16:12 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 # define WEAPON_HPP
 
 # include <iostream>
-using namespace std;
 
 class Weapon
 {
 	private:
-		string	type;
+		std::string	type;
 	
 	public:
-		Weapon(string);
+		Weapon(std::string);
 		Weapon(void);
-		const string&	getType(void);
-		void			setType(string);
+		const std::string&	getType(void);
+		void			setType(std::string);
 };
 
 #endif

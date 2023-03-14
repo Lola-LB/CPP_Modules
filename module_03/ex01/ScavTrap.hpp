@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:15:37 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/02 16:44:30 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:12:41 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class ScavTrap : virtual public ClapTrap
 	public:
 		// Constructors
 		ScavTrap(void);
-		ScavTrap(string name);
+		ScavTrap(std::string name);
 
 		// Destructor
 		~ScavTrap(void);

@@ -1,5 +1,7 @@
-SRCS	= main.cpp			\
-		  ClapTrap.cpp		\
+SRCS	= main.cpp				\
+		  ScalarConverter.cpp	\
+
+INC		= ScalarConverter.hpp		\
 
 OBJS	= $(SRCS:.cpp=.o)
 
@@ -9,12 +11,12 @@ FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 RM		= rm -f
 
-NAME	= clap
+NAME	= convert
 
 %.o: %.cpp
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) $(INC)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME) 
 
 all:	$(NAME)

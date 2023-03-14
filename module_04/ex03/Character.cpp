@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:31:08 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/08 14:45:19 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/14 16:13:57 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 // Constructors
 Character::Character(void) : _name("")
 {
-	cout << "Default constructor called of Character" << endl;
+	std::cout << "Default constructor called of Character" << std::endl;
 	for (size_t i = 0; i < 4; i++)
 	{
 		inventory[i] = NULL;
 	}
 }
 
-Character::Character(const string name) : _name(name)
+Character::Character(const std::string name) : _name(name)
 {
-	cout << "Field constructor called of Character" << endl;
+	std::cout << "Field constructor called of Character" << std::endl;
 	for (size_t i = 0; i < 4; i++)
 	{
 		inventory[i] = NULL;
@@ -39,7 +39,7 @@ Character::Character(const Character & copy) : _name(copy.getName())
 			delete inventory[i];
 		inventory[i] = copy.inventory[4]->clone();
 	}
-	cout << "Copy constructor called of Character" << endl;
+	std::cout << "Copy constructor called of Character" << std::endl;
 }
 
 // Operators
@@ -52,7 +52,7 @@ Character & Character::operator=(const Character &assign)
 			delete inventory[i];
 		inventory[i] = assign.inventory[4]->clone();
 	}
-	cout << "Assignment operator overload called of Character" << endl;
+	std::cout << "Assignment operator overload called of Character" << std::endl;
 	return (*this);
 }
 
@@ -64,12 +64,12 @@ Character::~Character(void)
 		if (inventory[i])
 			delete inventory[i];
 	}
-	cout << "Destructor called of Character" << endl;
+	std::cout << "Destructor called of Character" << std::endl;
 
 }
 
 // Other member functions
-string const & Character::getName() const
+std::string const & Character::getName() const
 {
 	return (_name);
 }
@@ -83,15 +83,15 @@ void Character::equip(AMateria* m)
 	if (idx < 4)
 	{
 		inventory[idx] = m;
-		cout << "Amateria of type " << m->getType()
+		std::cout << "Amateria of type " << m->getType()
 			 << " equiped by Character " << _name
-			 << " at slot " << idx << endl;
+			 << " at slot " << idx << std::endl;
 	}
 	else
 	{
-		cout << "Character " << _name
-			 << " has no empty slot in inventory for Amateria of type "
-			 << m->getType() << endl;
+		std::cout << "Character " << _name
+			 << " has no empty spot in inventory for Amateria of type "
+			 << m->getType() << std::endl;
 	}
 }
 
@@ -99,15 +99,15 @@ void Character::unequip(int idx)
 {
 	if (inventory[idx] != NULL)
 	{
-		cout << "Amateria of type " << inventory[idx]->getType()
-			 << " unequiped by Character " << _name
-			 << " from slot " << idx << endl;
+		std::cout << "Amateria of type " << inventory[idx]->getType()
+			 << " at slot " << idx
+			 << " unequiped by Character " << _name << std::endl;
 		inventory[idx] = NULL;
 	}
 	else 
 	{
-		cout << "Could not unequip empty slot" << idx
-			 << " of Character " << _name << endl;
+		std::cout << "Could not unequip empty slot" << idx
+			 << " of Character " << _name << std::endl;
 	}
 }
 
@@ -117,7 +117,7 @@ void Character::use(int idx, ICharacter& target)
 		inventory[idx]->use(target);
 	else 
 	{
-		cout << "Could not use Amateria of empty slot" << idx
-			 << " of Character " << _name << endl;
+		std::cout << "Could not use Amateria of empty slot" << idx
+			 << " of Character " << _name << std::endl;
 	}
 }

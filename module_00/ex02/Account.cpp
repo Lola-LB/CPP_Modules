@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 13:56:32 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/02/21 18:58:01 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:18:06 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #include <ctime>
 #include <chrono>
 #include <iostream>
-
-// using namespace std;
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -126,10 +124,10 @@ void	Account::displayStatus( void ) const
 
 void	Account::_displayTimestamp( void )
 {
-	// std::time_t now = std::time(NULL);
-    // std::tm *tm_now = std::localtime(&now);
+	std::time_t now = std::time(NULL);
+    std::tm *tm_now = std::localtime(&now);
 
-	// char buffer[80];
-    // std::strftime(buffer, 80, "%Y%m%d_%H%M%S", tm_now);
-    // std::cout << "[" << buffer << "] ";
+	char buffer[80];
+    std::strftime(buffer, 80, "%Y%m%d_%H%M%S", tm_now);
+    std::cout << "[" << buffer << "] ";
 }

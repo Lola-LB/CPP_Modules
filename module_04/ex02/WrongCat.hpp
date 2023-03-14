@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:30:29 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/02 21:59:09 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:10:29 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class WrongCat : public WrongAnimal
 		// Constructors
 		WrongCat();
 		WrongCat(const WrongCat &copy);
-		WrongCat(string type);
+		WrongCat(std::string type);
 		
 		// Destructor
 		~WrongCat();
@@ -29,7 +29,7 @@ class WrongCat : public WrongAnimal
 		void makeSound(void) const;
 		
 	private:
-		string _type;
+		std::string _type;
 };
 
 #endif
