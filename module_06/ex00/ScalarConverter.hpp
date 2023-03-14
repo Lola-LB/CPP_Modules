@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:09:53 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/13 12:47:55 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:38:57 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <string>
+# include <cmath>
 
 enum Type 
 {
@@ -22,12 +24,11 @@ enum Type
 	INT,
 	FLOAT,
 	DOUBLE,
-	NAN,
-	NANF,
+	T_NAN,
 	M_INF,
 	P_INF,
-	IMPOSSIBLE,
-	NON_DISPLAYABLE
+	NON_DISPLAYABLE,
+	ERROR
 };
 
 class ScalarConverter
