@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 20:30:20 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/08 15:11:48 by lle-bret         ###   ########.fr       */
+/*   Created: 2023/03/08 16:14:44 by lle-bret          #+#    #+#             */
+/*   Updated: 2023/03/08 16:31:54 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
+# include "Bureaucrat.hpp"
 
-# include "Character.hpp"
-
-class Ice : public AMateria
+int	main(void)
 {
-	public:
-		Ice(void);
-		
-		// Operators
-		Ice & operator=(const Ice &assign);
-
-		// Other member functions
-		AMateria* clone(void) const;
-		void use(ICharacter& target);
-};
-
-#endif
+	Bureaucrat alice("Alice", 1);
+	Bureaucrat bob("Bob", 150);
+	Bureaucrat charlie("Bob", 0);
+}

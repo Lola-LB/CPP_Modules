@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:31:08 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/07 18:39:18 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/08 14:45:19 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void Character::equip(AMateria* m)
 	else
 	{
 		cout << "Character " << _name
-			 << " has no empty spot in inventory for Amateria of type "
+			 << " has no empty slot in inventory for Amateria of type "
 			 << m->getType() << endl;
 	}
 }
@@ -100,8 +100,8 @@ void Character::unequip(int idx)
 	if (inventory[idx] != NULL)
 	{
 		cout << "Amateria of type " << inventory[idx]->getType()
-			 << " at slot " << idx
-			 << " unequiped by Character " << _name << endl;
+			 << " unequiped by Character " << _name
+			 << " from slot " << idx << endl;
 		inventory[idx] = NULL;
 	}
 	else 

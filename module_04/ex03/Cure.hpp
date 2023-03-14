@@ -6,14 +6,14 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:30:20 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/07 18:38:42 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/08 14:36:44 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CURE_HPP
 # define CURE_HPP
 
-# include "AMateria.hpp"
+# include "Character.hpp"
 
 class Cure : public AMateria
 {

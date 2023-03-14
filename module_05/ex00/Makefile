@@ -1,17 +1,7 @@
 SRCS	= main.cpp			\
-		  AMateria.cpp		\
-		  Cure.cpp			\
-		  Ice.cpp			\
-		  Character.cpp		\
-		  MateriaSource.cpp	\
+		  Bureaucrat.cpp	\
 
-INC		= AMateria.hpp		\
-		  ICharacter.hpp	\
-		  Character.hpp		\
-		  Cure.hpp			\
-		  Ice.hpp			\
-		  IMateriaSource.hpp	\
-		  MateriaSource.hpp	\
+INC		= Bureaucrat.hpp	\
 
 OBJS	= $(SRCS:.cpp=.o)
 
@@ -21,7 +11,7 @@ FLAGS	= -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 RM		= rm -f
 
-NAME	= materia
+NAME	= bureaucrat
 
 %.o: %.cpp
 	$(CC) $(FLAGS) -c $< -o $@

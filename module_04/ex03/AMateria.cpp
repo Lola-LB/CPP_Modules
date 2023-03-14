@@ -6,11 +6,11 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:24:30 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/07 17:55:58 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/08 14:43:07 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+# include "Character.hpp"
 
 AMateria::AMateria(void)
 {
@@ -39,4 +39,9 @@ AMateria::~AMateria(void)
 string const & AMateria::getType(void) const
 {
 	return _type;
+}
+
+void AMateria::use(ICharacter& target)
+{
+	(void) target;
 }
