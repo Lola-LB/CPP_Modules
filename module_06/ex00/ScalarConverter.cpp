@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:09:48 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/13 19:56:34 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:20:55 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,26 +54,20 @@ void ScalarConverter::convert(std::string literal)
 		d = static_cast<double>(c);
 		break;
 	case INT:
-		i = stoi(literal);
-		c = static_cast<char>(i);
-		f = static_cast<float>(i);
-		d = static_cast<double>(i);
-		break;
 	case FLOAT:
-		f = stof(literal);
-		c = static_cast<char>(f);
-		i = static_cast<int>(f);
-		d = static_cast<double>(f);
-		break;
 	case DOUBLE:
-		d = stod(literal);
+		d = atof(literal.c_str());
 		c = static_cast<char>(d);
+		if (d > INT_MAX || d < INT_MIN)
+			i_err = "impossible";
+		if (d > std::numeric_limits<float>::max() || d < std::numeric_limits<float>::min())
+			f_err = "impossible";
 		i = static_cast<int>(d);
 		f = static_cast<float>(d);
 		break;
 	case T_NAN:
-		d = std::nan("");
-		f = std::nanf("");
+		d_err = "nan";
+		f_err = "nanf";
 		c_err = "impossible";
 		i_err = "impossible";
 		break;
@@ -89,14 +83,16 @@ void ScalarConverter::convert(std::string literal)
 		c_err = "impossible";
 		i_err = "impossible";
 		break;
+	case ERROR:
+		d_err = "impossible";
+		f_err = "impossible";
+		c_err = "impossible";
+		i_err = "impossible";
 	default:
 		break;
 	}
-	
 	if ((c < 32 || c > 127) && c_err == "")
 		c_err = "Non displayable";
-
-	
 	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "char: ";
 	if (c_err == "")
@@ -108,8 +104,10 @@ void ScalarConverter::convert(std::string literal)
 	std::cout << i_err << std::endl
 			  << "float: ";
 	if (f_err == "")
-		std::cout << f;
-	std::cout << f_err << "f" << std::endl
+		std::cout << f << "f";
+	else
+		std::cout << f_err;
+	std::cout << std::endl
 			  << "double: ";
 	if (d_err == "")
 		std::cout << d;
@@ -129,7 +127,6 @@ Type	ScalarConverter::getType(std::string literal)
 		return (M_INF);
 	if (literal == "+inf")
 		return (P_INF);
-	
 	// Float
 	for (size_t i = 0; i < literal.length(); i++)
 	{
@@ -140,11 +137,9 @@ Type	ScalarConverter::getType(std::string literal)
 		if (!std::isdigit(literal[0]) && !(literal[i] == '.' && dot == 1))
 			return (ERROR);
 	}
-	
 	// Int
 	if (dot == 0)
 		return (INT);
-	
 	// Double
 	return (DOUBLE);
 }
