@@ -6,7 +6,7 @@
 /*   By: lola <lola@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:35:34 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/14 13:01:18 by lola             ###   ########.fr       */
+/*   Updated: 2023/04/14 14:00:38 by lola             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <iostream>
 # include <string>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -41,7 +44,7 @@ class Bureaucrat
 		void				upGrade(void);
 		void				deGrade(void);
 
-		//Nested exceptions classes
+		// Nested exceptions classes
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -53,6 +56,9 @@ class Bureaucrat
 			public:
 				virtual const char* what() const throw();
 		};
+
+		// Other member functions
+		void	signForm(Form & f);
 };
 
 
