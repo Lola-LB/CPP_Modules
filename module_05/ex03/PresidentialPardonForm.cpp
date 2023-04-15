@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lola <lola@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:00:15 by lola              #+#    #+#             */
-/*   Updated: 2023/04/14 19:00:54 by lola             ###   ########.fr       */
+/*   Updated: 2023/04/15 17:19:33 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Constructors
 PresidentialPardonForm::PresidentialPardonForm(const std::string target)
-	: AForm("Presidential Pardon", false, 25, 5)
+	: AForm("presidential pardon", false, 25, 5)
 {
 	_target = target;
 }

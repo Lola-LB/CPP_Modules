@@ -14,7 +14,7 @@
 
 // Constructors
 RobotomyRequestForm::RobotomyRequestForm(const std::string target)
-	: AForm("Robotomy Request", false, 72, 45)
+	: AForm("robotomy request", false, 72, 45)
 {
 	_target = target;
 }

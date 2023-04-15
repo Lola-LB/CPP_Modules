@@ -14,7 +14,7 @@
 
 // Constructors
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
-	: AForm("Shrubbery Creation", false, 145, 137)
+	: AForm("shrubbery creation", false, 145, 137)
 {
 	_target = target;
 }
