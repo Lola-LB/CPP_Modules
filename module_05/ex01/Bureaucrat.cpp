@@ -6,7 +6,7 @@
 /*   By: lola <lola@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:36:52 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/14 13:08:33 by lola             ###   ########.fr       */
+/*   Updated: 2023/04/14 13:56:16 by lola             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,20 @@ void Bureaucrat::deGrade(void)
 	if (_grade == 150)
 		throw GradeTooLowException();
 	++_grade;
+}
+
+void	Bureaucrat::signForm(Form & f)
+{
+	try
+	{
+		f.beSigned(*this);
+		std::cout << _name << " signed form " << f.get_name() << std::endl;
+	}
+	catch(const Form::GradeTooLowException& e)
+	{
+		std::cout << _name << " couldn't sign form " << f.get_name()
+		<< " because grade " << _grade << " is below " << f.get_signGrade()
+		<< std::endl;
+	}
+	
 }

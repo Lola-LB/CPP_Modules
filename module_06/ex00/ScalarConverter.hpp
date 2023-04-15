@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:09:53 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/15 14:44:26 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/04/15 17:06:00 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <iomanip>
 # include <string>
 # include <cmath>
+# include <climits>
+# include <limits>
 
 enum Type 
 {
