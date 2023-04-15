@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:09:48 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/15 14:45:14 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:26:32 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,22 +88,67 @@ void ScalarConverter::convert(std::string literal)
 		d = static_cast<double>(c);
 		break;
 	case INT:
-		i = stoi(literal);
-		c = static_cast<char>(i);
-		f = static_cast<float>(i);
-		d = static_cast<double>(i);
+		try
+		{
+			i = stoi(literal);
+			c = static_cast<char>(i);
+			f = static_cast<float>(i);
+			d = static_cast<double>(i);
+		}
+		catch (const std::exception& e)
+		{
+			i_err = "impossible";
+			try
+			{
+				f = stof(literal);
+				d = static_cast<double>(f);
+			}
+			catch (const std::exception& e)
+			{
+				f_err = "impossible";
+				try
+				{
+					d = stod(literal);
+				}
+				catch (const std::exception& e)
+				{
+					d_err = "impossible";
+				}
+			}	
+		}
 		break;
 	case FLOAT:
-		f = stof(literal);
-		c = static_cast<char>(f);
-		i = static_cast<int>(f);
-		d = static_cast<double>(f);
+		try
+		{
+			f = stof(literal);
+			c = static_cast<char>(f);
+			i = static_cast<int>(f);
+			d = static_cast<double>(f);
+			break;
+		}
+		catch (const std::exception& e)
+		{
+			d_err = "impossible";
+			f_err = "impossible";
+			c_err = "impossible";
+			i_err = "impossible";	
+		}
 		break;
 	case DOUBLE:
-		d = stod(literal);
-		c = static_cast<char>(d);
-		i = static_cast<int>(d);
-		f = static_cast<float>(d);
+		try
+		{
+			d = stod(literal);
+			c = static_cast<char>(d);
+			i = static_cast<int>(d);
+			f = static_cast<float>(d);
+		}
+		catch (const std::exception& e)
+		{
+			d_err = "impossible";
+			f_err = "impossible";
+			c_err = "impossible";
+			i_err = "impossible";
+		}
 		break;
 	case T_NAN:
 	case M_INF:
@@ -120,7 +165,6 @@ void ScalarConverter::convert(std::string literal)
 		i_err = "impossible";
 		break;
 	}
-	
 	std::cout << std::fixed << std::setprecision(1) << "char: ";
 	if (isprint(c))
 		std::cout << c;

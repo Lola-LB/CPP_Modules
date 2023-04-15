@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:09:53 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/13 19:38:57 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:44:26 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ enum Type
 	T_NAN,
 	M_INF,
 	P_INF,
-	NON_DISPLAYABLE,
 	ERROR
 };
 
@@ -48,7 +47,6 @@ class ScalarConverter
 
 		static Type	getType(std::string literal);
 
-		static Type	isChar(std::string literal);
 		static Type	isInt(std::string literal);
 		static Type	isFloat(std::string literal);
 		static Type	isDouble(std::string literal);
