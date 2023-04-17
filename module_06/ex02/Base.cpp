@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 23:33:19 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/17 00:02:09 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/04/17 10:53:29 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,21 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-	(void) p;
+	try
+	{
+		(void) dynamic_cast<A&>(p);
+		std::cout << "A" << std::endl;
+	}
+	catch(const std::bad_cast& e)
+	{
+		try
+		{
+			(void) dynamic_cast<B&>(p);
+			std::cout << "B" << std::endl;
+		}
+		catch(const std::bad_cast& e)
+		{
+			std::cout << "C" << std::endl;
+		}
+	}
 }
