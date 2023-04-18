@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:24:21 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/18 18:15:56 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/04/18 18:51:02 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class MutantStack : public std::stack<T>
 				// Operator
 				T & operator*(void)
 				{
-					if (_i >= 0)
+					if (static_cast<unsigned long>(_i) < _stack.c.size())
 						return _stack.c[_i];
 					return (_end);
 				}
@@ -48,29 +48,39 @@ class MutantStack : public std::stack<T>
 					_stack = assign._stack;
 				}
 
+				bool	operator!=( const iterator &it )
+				{
+					return (&_stack.c[_i] != &it._stack.c[it._i]);
+				}
+				
+				bool	operator==( const iterator &it )
+				{
+					return (&_stack.c[_i] == &it._stack.c[it._i]);
+				}
+
 				iterator & operator++(void)
 				{
-					if (_i >= 0)
-						--_i;
+					if (_i < 0 || static_cast<unsigned long>(_i) < _stack.c.size())
+						++_i;
 					return *this;
 				}
 
 				iterator operator++(int)
 				{
-					if (_i >= 0)
-						return (iterator(_i--, _stack));
+					if (_i < 0 || static_cast<unsigned long>(_i) < _stack.c.size())
+						return (iterator(_i++, _stack));
 					return *this;
 				}
 
 				iterator & operator--(void)
 				{
-					++_i;
+					--_i;
 					return *this;
 				}
 				
 				iterator operator--(int)
 				{
-					return (iterator(_i++, _stack));
+					return (iterator(_i--, _stack));
 				}
 				
 				// Destructor
@@ -80,11 +90,12 @@ class MutantStack : public std::stack<T>
 		// Other
 		iterator begin(void)
 		{
-			return (iterator(this->c.size() - 1, *this));
+			return (iterator(0, *this));
 		}
+
 		iterator end(void)
 		{
-			return (++iterator(0, *this));
+			return (++iterator(this->c.size() - 1, *this));
 		};
 };
 
