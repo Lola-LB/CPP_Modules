@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 21:05:49 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/17 21:08:16 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:18:46 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <string>
+# include <vector>
+# include <algorithm>
 
 class Span
 {
@@ -31,11 +33,14 @@ class Span
 
 		// Other
 		void	addNumber( int number );
+		void	addRange( std::vector<int>::iterator first, std::vector<int>::iterator last );
 		int		shortestSpan( void );
 		int		longestSpan( void );
 		
 	private:
 		Span( void );
+		std::vector<int>	_stock;
+		const unsigned int	_N;
 		
 };
 
