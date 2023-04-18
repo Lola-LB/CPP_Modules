@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 13:49:05 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/17 20:59:37 by lle-bret         ###   ########.fr       */
+/*   Created: 2023/04/17 21:05:45 by lle-bret          #+#    #+#             */
+/*   Updated: 2023/04/17 21:08:48 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#include "Span.hpp"
 
-# include <iostream>
-# include <algorithm>
-
-template <typename T>
-void easyfind(const T & container, int n)
+// Constructors
+Span::Span( void )
 {
-	if (std::find(container.begin(), container.end(), n) == container.end())
-		throw std::out_of_range("Non existent element");
 }
-#endif
+
+Span::Span( unsigned int n )
+{
+}
+
+Span::Span( const Span &copy )
+{
+	( void ) copy;
+}
+
+
+// Destructor
+Span::~Span(  )
+{
+}
+
+
+// Operators
+Span & Span::operator=( const Span &assign )
+{
+	( void ) assign;
+	return *this;
+}
+
