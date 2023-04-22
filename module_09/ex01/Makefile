@@ -1,7 +1,7 @@
-SRCS	= main.cpp				\
-		  BitcoinExchange.cpp	\
+SRCS	= main.cpp	\
+		  RPN.cpp	\
 
-INC		= BitcoinExchange.hpp	\
+INC		= RPN.hpp	\
 
 OBJS	= $(SRCS:.cpp=.o)
 
@@ -11,7 +11,7 @@ FLAGS	= -g3 -Wall -Wextra -Werror -std=c++98
 
 RM		= rm -f
 
-NAME	= btc
+NAME	= RPN
 
 %.o: %.cpp
 	$(CC) $(FLAGS) -c $< -o $@
