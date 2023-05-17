@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:05:51 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/09 18:12:41 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:36:15 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ Zombie::~Zombie()
 
 void Zombie::announce( void )
 {
-	std::cout << "announcing " << _name << ": BraiiiiiiinnnzzzZ...\n";
+	std::cout << _name << ": BraiiiiiiinnnzzzZ...\n";
 }
