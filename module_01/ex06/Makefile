@@ -9,7 +9,7 @@ FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 RM		= rm -f
 
-NAME	= harlFilter
+NAME	= HarlFilter
 
 %.o: %.cpp
 	$(CC) $(FLAGS) -c $< -o $@

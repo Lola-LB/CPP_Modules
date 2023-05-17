@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:21:35 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/09 18:16:12 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:58:14 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <iostream>
 
-
-
 # define DEBUG  "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!"
 # define INFO "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!"
 # define WARNING "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month."
@@ -24,15 +22,17 @@
 
 class Harl
 {
-private:
-	void debug( void );
-	void info( void );
-	void warning( void );
-	void error( void );
-public:
-	Harl(/* args */);
-	~Harl();
-	void complain( std::string level );
+	private:
+		void debug( void );
+		void info( void );
+		void warning( void );
+		void error( void );
+		
+	public:
+		Harl(/* args */);
+		
+		~Harl();
+		void complain( std::string level );
 };
 
 typedef  void (Harl::*HarlMemFn)( void );

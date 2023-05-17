@@ -6,15 +6,14 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:05:47 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/09 18:12:41 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:13:11 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void Zombie::randomChump( std::string name )
+void randomChump( std::string name )
 {
-	Zombie *z = Zombie::newZombie(name);
-	z->announce();
-	delete z;
+	Zombie z(name);
+	z.announce();
 }

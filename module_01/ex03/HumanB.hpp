@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:54:17 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/09 18:10:29 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:36:03 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class HumanB
 {
 	private:
 		std::string	name;
-		Weapon	*weapon;
+		Weapon		*weapon;
 	
 	public:
 		HumanB(std::string name);
