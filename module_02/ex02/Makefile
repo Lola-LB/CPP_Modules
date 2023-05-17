@@ -1,7 +1,5 @@
 SRCS	= main.cpp				\
 		  Fixed.cpp				\
-		  FixedOperators.cpp	\
-		  FixedFunctions.cpp	\
 
 OBJS	= $(SRCS:.cpp=.o)
 

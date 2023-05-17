@@ -56,3 +56,146 @@ void Fixed::setRawBits( int const raw )
 	_RawBits = raw;
 	//std::cout << "setRawBits member function called" << std::endl;
 }
+
+Fixed & Fixed::operator=(const Fixed &assign)
+{
+//	std::cout << "Copy assignment operator called" << std::endl;
+	_RawBits = assign.getRawBits();
+	return (*this);
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& f)
+{
+    os << f.toFloat();
+	return (os);
+}
+
+// Arithmetic
+Fixed Fixed::operator+(const Fixed &a) const
+{
+	Fixed	res;
+	res.setRawBits(_RawBits + a.getRawBits());
+	return (res);
+}
+
+Fixed Fixed::operator-(const Fixed &a) const
+{
+	Fixed	res;
+	res.setRawBits(_RawBits - a.getRawBits());
+	return (res);
+}
+
+Fixed Fixed::operator*(const Fixed &a) const
+{
+	Fixed	res;
+	res.setRawBits((_RawBits * a.getRawBits()) >> _FracBits);
+	return (res);
+}
+
+Fixed Fixed::operator/(const Fixed &a) const
+{
+	Fixed	res;
+	res.setRawBits((_RawBits << _FracBits) / a.getRawBits());
+	return (res);
+}
+
+// Increment / Decrement
+Fixed Fixed::operator++(int i)
+{
+	Fixed b(*this);
+	
+	(void) i;
+	_RawBits += 1;
+	return (b);
+}
+
+Fixed Fixed::operator--(int i)
+{
+	Fixed b(*this);
+	
+	(void) i;
+	_RawBits -= 1;
+	return (b);
+}
+
+Fixed & Fixed::operator++(void)
+{
+	_RawBits += 1;
+	return (*this);
+}
+
+Fixed & Fixed::operator--(void)
+{
+	_RawBits -= 1;
+	return (*this);
+}
+
+// Comparison
+bool Fixed::operator<(const Fixed &a) const
+{
+	return (_RawBits < a.getRawBits());
+}
+
+bool Fixed::operator>(const Fixed &a) const
+{
+	return (_RawBits > a.getRawBits());
+}
+
+bool Fixed::operator<=(const Fixed &a) const
+{
+	return (_RawBits <= a.getRawBits());
+}
+
+bool Fixed::operator>=(const Fixed &a) const
+{
+	return (_RawBits >= a.getRawBits());
+}
+
+bool Fixed::operator==(const Fixed &a) const
+{
+	return (_RawBits == a.getRawBits());
+}
+
+bool Fixed::operator!=(const Fixed &a) const
+{
+	return (_RawBits != a.getRawBits());
+}
+
+float Fixed::toFloat( void ) const
+{
+	float point = float(_RawBits & ((1 << _FracBits) - 1)) / float(1 << _FracBits);
+	return (float(_RawBits >> _FracBits) + point);
+}
+
+int Fixed::toInt( void ) const
+{
+	return (int(_RawBits >> _FracBits));
+}
+
+Fixed & Fixed::min(Fixed& a, Fixed& b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+Fixed & Fixed::max(Fixed& a, Fixed& b)
+{
+	if (a < b)
+		return (b);
+	return (a);
+}
+
+const Fixed & Fixed::min(const Fixed& a, const Fixed& b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+const Fixed & Fixed::max(const Fixed& a, const Fixed& b)
+{
+	if (a < b)
+		return (b);
+	return (a);
+}

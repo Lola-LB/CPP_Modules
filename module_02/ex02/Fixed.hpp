@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:56:44 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/09 18:16:12 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:58:46 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Fixed
 
 		// Operators
 		Fixed &					operator=(const Fixed &assign);
-		friend std::ostream&			operator<<(std::ostream& os, const Fixed& f);
+		friend std::ostream&	operator<<(std::ostream& os, const Fixed& f);
 
 		Fixed 					operator+(const Fixed &a) const;
 		Fixed					operator-(const Fixed &a) const;
