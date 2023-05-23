@@ -6,13 +6,15 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:33:30 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/14 16:09:36 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:07:52 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(void) : AMateria("cure") {}
+Cure::Cure(void) : AMateria("cure")
+{
+}
 
 AMateria* Cure::clone(void) const
 {
@@ -26,6 +28,12 @@ Cure & Cure::operator=(const Cure &assign)
 	_type = "cure";
 	std::cout << "Copy assignment operator called of Cure" << std::endl;
 	return *this;
+}
+
+// Destructor
+Cure::~Cure(void)
+{
+	std::cout << "Destructor called of AMateria of type " << _type << std::endl;
 }
 
 // Other member functions

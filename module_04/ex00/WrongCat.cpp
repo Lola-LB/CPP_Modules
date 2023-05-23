@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:30:25 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/09 18:12:41 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:58:32 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ WrongCat::~WrongCat()
 }
 
 // Member functions
-
 void WrongCat::makeSound(void) const
 {
 	std::cout << "Meow!" << std::endl;

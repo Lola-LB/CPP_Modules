@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:31:08 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/14 16:13:57 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:58:13 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ Character::Character(const Character & copy) : _name(copy.getName())
 	{
 		if (inventory[i])
 			delete inventory[i];
-		inventory[i] = copy.inventory[4]->clone();
+		if (assign.inventory[i])
+			inventory[i] = assign.inventory[i]->clone();
+		else
+			inventory[i] = NULL;
 	}
 	std::cout << "Copy constructor called of Character" << std::endl;
 }
@@ -50,7 +53,10 @@ Character & Character::operator=(const Character &assign)
 	{
 		if (inventory[i])
 			delete inventory[i];
-		inventory[i] = assign.inventory[4]->clone();
+		if (assign.inventory[i])
+			inventory[i] = assign.inventory[i]->clone();
+		else
+			inventory[i] = NULL;
 	}
 	std::cout << "Assignment operator overload called of Character" << std::endl;
 	return (*this);
@@ -97,7 +103,7 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	if (inventory[idx] != NULL)
+	if (idx < 4 && inventory[idx] != NULL)
 	{
 		std::cout << "Amateria of type " << inventory[idx]->getType()
 			 << " at slot " << idx
@@ -113,7 +119,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (inventory[idx] != NULL)
+	if (idx < 4 && inventory[idx] != NULL)
 		inventory[idx]->use(target);
 	else 
 	{

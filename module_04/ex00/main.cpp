@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:37:24 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/09 18:12:41 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/22 16:14:39 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,45 @@
 int main(void)
 {
 	Animal* meta = new Animal();
-	Animal* j = new Dog();
-	Animal* i = new Cat();
+	Animal* dog = new Dog();
+	Animal* cat = new Cat();
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
+	std::cout << "\n";
+	std::cout << "dog type: " << dog->getType() << std::endl;
+	std::cout << "cat type: " << cat->getType() << std::endl;
+	std::cout << "meta sound: ";
 	meta->makeSound();
-	*meta = *i;
-	std::cout << meta->getType() << " " << std::endl;
-	meta->makeSound();
+	std::cout << "dog sound: ";
+	dog->makeSound();
+	std::cout << "cat sound: ";
+	cat->makeSound();
+	
 	delete meta;
-	delete i;
-	delete j;
+	std::cout << "\n";
+	meta = cat;
+	std::cout << "meta type: " << meta->getType() << std::endl;
+	std::cout << "meta sound: ";
+	meta->makeSound();
+	
+	std::cout << "\n";
+	meta = dog;
+	std::cout << "meta type: " << meta->getType() << std::endl;
+	std::cout << "meta sound: ";
+	meta->makeSound();
+	
+	std::cout << "\n";
+	const WrongAnimal* wrong_meta = new WrongAnimal();
+	const WrongAnimal* wrong_cat = new WrongCat();
+	
+	std::cout << "\n";
+	std::cout << wrong_cat->getType() << std::endl;
+	wrong_cat->makeSound();
+	wrong_meta->makeSound();
+	
+	std::cout << "\n";
+	delete dog;
+	delete cat;
+	delete wrong_meta;
+	delete wrong_cat;
 	return 0;
 }
-
-// int main(void)
-// {
-// 	const WrongAnimal* meta = new WrongAnimal();
-// 	const Animal* j = new Dog();
-// 	const WrongAnimal* i = new WrongCat();
-
-// 	std::cout << j->getType() << " " << std::endl;
-// 	std::cout << i->getType() << " " << std::endl;
-// 	i->makeSound(); //will output the cat sound!
-// 	j->makeSound();
-// 	meta->makeSound();
-// 	return 0;
-// }

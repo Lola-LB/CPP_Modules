@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:24:30 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/14 16:07:14 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:10:21 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,21 @@ AMateria::AMateria(void)
 AMateria::AMateria(std::string const & type)
 {
 	_type = type;
-	std::cout << "Default Constructor called of AMateria of type " << _type << std::endl;
+	std::cout << "Field Constructor called of AMateria of type " << _type << std::endl;
 }
 
 AMateria::AMateria(const AMateria &copy)
 {
-	_type = copy.getType();
+	(void) copy;
 	std::cout << "Copy Constructor called of AMateria of type " << _type << std::endl;
+}
+
+// Operator
+AMateria & AMateria::operator=(const AMateria &assign)
+{
+	(void) assign;
+	std::cout << "Copy assignment operator called of AMateria of type " << _type << std::endl;
+	return *this;
 }
 
 // Destructor

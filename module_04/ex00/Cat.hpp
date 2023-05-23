@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:30:29 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/07 17:21:21 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:56:13 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ class Cat : public Animal
 		Cat(void);
 		Cat(const Cat &copy);
 		
+		// Operators
+		Cat & operator=(const Cat &assign);
+
 		// Destructor
 		~Cat();
 

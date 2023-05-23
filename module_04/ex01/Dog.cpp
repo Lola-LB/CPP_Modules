@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:30:25 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/09 18:10:15 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/22 16:16:43 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Dog::Dog(void) : Animal("Dog")
 	try {
         _brain = new Brain();
     }
-    catch (const bad_alloc& e) {
+    catch (const std::bad_alloc& e) {
         std::cout << "Memory Allocation has failed : " << e.what() << std::endl;
     }
 }
@@ -30,7 +30,7 @@ Dog::Dog(const Dog &copy) : Animal(copy)
 	try {
         _brain = new Brain(*copy._brain);;
     }
-    catch (const bad_alloc& e) {
+    catch (const std::bad_alloc& e) {
         std::cout << "Memory Allocation has failed : " << e.what() << std::endl;
     }
 }
@@ -41,7 +41,7 @@ Dog::Dog(const Brain brain) : Animal("Dog")
 	try {
         _brain = new Brain(brain);;
     }
-    catch (const bad_alloc& e) {
+    catch (const std::bad_alloc& e) {
         std::cout << "Memory Allocation has failed : " << e.what() << std::endl;
     }
 }

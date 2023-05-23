@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:30:25 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/09 18:10:15 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:56:48 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,15 @@ Dog::~Dog()
 	std::cout << "Destructor called of Dog" << std::endl;
 }
 
-// Member functions
+// Operators
+Dog & Dog::operator=(const Dog &assign)
+{
+	_type = assign.getType();
+	std::cout << "Copy assignment operator called of Dog" << std::endl;
+	return *this;
+}
 
+// Member functions
 void Dog::makeSound(void) const
 {
 	std::cout << "Wouf!" << std::endl;

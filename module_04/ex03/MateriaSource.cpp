@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:52:12 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/08 15:29:52 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:20:46 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Constructors
 MateriaSource::MateriaSource(void)
 {
-	cout << "Default constructor called of MateriaSource" << endl;
+	std::cout << "Default constructor called of MateriaSource" << std::endl;
 	for (size_t i = 0; i < 4; i++)
 	{
 		_learnedMateria[i] = NULL;
@@ -29,7 +29,7 @@ MateriaSource::MateriaSource(const MateriaSource & copy)
 		if (copy._learnedMateria[i])
 			_learnedMateria[i] = copy._learnedMateria[i]->clone();
 	}
-	cout << "Copy constructor called of MateriaSource" << endl;
+	std::cout << "Copy constructor called of MateriaSource" << std::endl;
 }
 
 // Operators
@@ -40,7 +40,7 @@ MateriaSource & MateriaSource::operator=(const MateriaSource &assign)
 		if (assign._learnedMateria[i])
 			_learnedMateria[i] = assign._learnedMateria[i]->clone();
 	}
-	cout << "Assignment operator overload called of MateriaSource" << endl;
+	std::cout << "Assignment operator overload called of MateriaSource" << std::endl;
 	return (*this);
 }
 
@@ -52,7 +52,7 @@ MateriaSource::~MateriaSource(void)
 		if (_learnedMateria[i])
 			delete _learnedMateria[i];
 	}
-	cout << "Destructor called of MateriaSource" << endl;
+	std::cout << "Destructor called of MateriaSource" << std::endl;
 }
 
 // Other member functions
@@ -64,14 +64,14 @@ void MateriaSource::learnMateria(AMateria* m)
 		++idx;
 	if (idx < 4)
 	{
-		_learnedMateria[idx] = m->clone();
-		cout << "Amateria of type " << m->getType()
-			 << " learned." << endl;
+		_learnedMateria[idx] = m;
+		std::cout << "Amateria of type " << m->getType()
+			 << " learned." << std::endl;
 	}
 	else
 	{
-		cout << "No space left to learn Amateria of type "
-			 << m->getType() << endl;
+		std::cout << "No space left to learn Amateria of type "
+			 << m->getType() << std::endl;
 	}
 }
 
@@ -79,20 +79,18 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	int	idx = 0;
 	
-	while (idx < 4 && !(_learnedMateria[idx] &&_learnedMateria[idx]->getType() == type))
-	{
+	while (idx < 4 && !(_learnedMateria[idx] && _learnedMateria[idx]->getType() == type))
 		++idx;
-	}
 	if (idx < 4)
 	{
-		cout << "Amateria of type " << type
-			 << " created." << endl;
+		std::cout << "Amateria of type " << type
+			 << " created." << std::endl;
 		return (_learnedMateria[idx]->clone());
 	}
 	else
 	{
-		cout << "No Amateria of type " << type
-			 << " is known." << endl;
+		std::cout << "No Amateria of type " << type
+			 << " is known." << std::endl;
 		return (NULL);
 	}
 }
