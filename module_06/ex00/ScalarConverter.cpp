@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:09:48 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/16 20:16:03 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:10:37 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,12 @@ ScalarConverter & ScalarConverter::operator=(const ScalarConverter &assign)
 
 Type	ScalarConverter::isInt(std::string literal)
 {
-	std::string max = std::to_string(std::numeric_limits<int>::max());
-	std::string min = std::to_string(std::numeric_limits<int>::min());
+	std::ostringstream oss_max;
+	std::ostringstream oss_min;
+    oss_max << std::numeric_limits<int>::max();
+    oss_min << std::numeric_limits<int>::min();
+	std::string max = oss_max.str();
+	std::string min = oss_min.str();
 
 	if (literal[0] != '-' && (literal.length() > max.length()
 		|| (literal.length() == max.length() && literal.compare(max) > 0)))
@@ -56,8 +60,12 @@ Type	ScalarConverter::isFloat(std::string literal)
 
 Type	ScalarConverter::isDouble(std::string literal)
 {
-	std::string max = std::to_string(std::numeric_limits<double>::max());
-	std::string min = std::to_string(std::numeric_limits<double>::min());
+	std::ostringstream oss_max;
+	std::ostringstream oss_min;
+    oss_max << std::numeric_limits<double>::max();
+    oss_min << std::numeric_limits<double>::min();
+	std::string max = oss_max.str();
+	std::string min = oss_min.str();
 
 	if (literal[0] != '-' && (literal.length() > max.length()
 		|| (literal.length() == max.length() && literal.compare(max) > 0)))
@@ -101,8 +109,8 @@ void ScalarConverter::convert(std::string literal)
 		f = static_cast<float>(d);
 		break;
 	case T_NAN:
-		d = std::nan("");
-		f = std::nanf("");
+		d = nan("");
+		f = nanf("");
 		c_err = "impossible";
 		i_err = "impossible";
 		break;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
+/*   ScalarConverter_copy.cpp                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:09:48 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/03/15 14:26:32 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:00:47 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ ScalarConverter & ScalarConverter::operator=(const ScalarConverter &assign)
 
 Type	ScalarConverter::isInt(std::string literal)
 {
-	std::string max = std::to_string(std::numeric_limits<int>::max());
-	std::string min = std::to_string(std::numeric_limits<int>::min());
+	std::string max = to_string(std::numeric_limits<int>::max());
+	std::string min = to_string(std::numeric_limits<int>::min());
 
 	if (literal[0] != '-' && (literal.length() > max.length()
 		|| (literal.length() == max.length() && literal.compare(max) > 0)))
@@ -56,8 +56,8 @@ Type	ScalarConverter::isFloat(std::string literal)
 
 Type	ScalarConverter::isDouble(std::string literal)
 {
-	std::string max = std::to_string(std::numeric_limits<double>::max());
-	std::string min = std::to_string(std::numeric_limits<double>::min());
+	std::string max = to_string(std::numeric_limits<double>::max());
+	std::string min = to_string(std::numeric_limits<double>::min());
 
 	if (literal[0] != '-' && (literal.length() > max.length()
 		|| (literal.length() == max.length() && literal.compare(max) > 0)))

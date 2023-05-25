@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 23:33:19 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/17 10:53:29 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:22:14 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,20 @@ Base * generate(void)
 	srand (time(NULL));
 	rd = rand();
 	if (rd % 3 == 0)
+	{
+		// std::cout << "Generate: A\n";
 		return (new A());
+	}
 	else if (rd % 3 == 1)
+	{
+		// std::cout << "Generate: B\n";
 		return (new B());
+	}
 	else
-		return (new C());	
+	{
+		// std::cout << "Generate: C\n";
+		return (new C());
+	}
 }
 
 void identify(Base* p)
@@ -48,14 +57,14 @@ void identify(Base& p)
 		(void) dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
 	}
-	catch(const std::bad_cast& e)
+	catch(const std::exception& e)
 	{
 		try
 		{
 			(void) dynamic_cast<B&>(p);
 			std::cout << "B" << std::endl;
 		}
-		catch(const std::bad_cast& e)
+		catch(const std::exception& e)
 		{
 			std::cout << "C" << std::endl;
 		}
