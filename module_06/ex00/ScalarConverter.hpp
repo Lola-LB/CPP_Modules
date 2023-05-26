@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:09:53 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/05/24 12:04:04 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:52:25 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ enum Type
 
 class ScalarConverter
 {
+	// Constructors
+	ScalarConverter();
+	ScalarConverter(const ScalarConverter &copy);
+	
 	public:
-		// Constructors
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter &copy);
-		
 		// Destructor
 		~ScalarConverter();
 		
