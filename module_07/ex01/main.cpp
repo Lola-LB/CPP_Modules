@@ -6,11 +6,12 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:31:26 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/17 12:02:18 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/24 13:30:51 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "iter.hpp"
+#include "iter.hpp"
+#include <cstring>
 
 void	pchar(char c)
 {
@@ -31,7 +32,7 @@ void	triple(int i)
 int main( int ac, char **av ) {
 	if (ac > 1)
 	{
-		iter<char, void>(av[1], strlen(av[1]), pchar);
+		iter<char, void>(av[1], std::strlen(av[1]), pchar);
 		std::cout << std::endl;
 		iter<char*, int>(av, ac, pstr);
 	}
