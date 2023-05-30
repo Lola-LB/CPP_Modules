@@ -6,16 +6,16 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 11:21:38 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/22 12:02:39 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:53:06 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-bool	singleOP(std::stack<int> & s, char c)
+bool	singleOP(std::stack<unsigned long> & s, char c)
 {
-	int	n;
-	int	m;
+	unsigned long	n;
+	unsigned long	m;
 
 	m = s.top();
 	s.pop();
@@ -47,17 +47,24 @@ bool	singleOP(std::stack<int> & s, char c)
 	return (true);
 }
 
+bool is_number(const std::string& s)
+{
+    std::string::const_iterator it = s.begin();
+    while (it != s.end() && std::isdigit(*it)) ++it;
+    return !s.empty() && it == s.end();
+}
+
 void	calculateRPN(std::string rpn)
 {
-	std::stack<int>		s;
-	std::stringstream	ss(rpn);
-	int					n;
+	std::stack<unsigned long>	s;
+	std::stringstream			ss(rpn);
+	unsigned long				n;
 
 	try
 	{
 		while (std::getline(ss, rpn, ' '))
 		{
-			if (std::all_of(rpn.begin(), rpn.end(), ::isdigit)
+			if (is_number(rpn)
 				&& std::stringstream(rpn) >> n
 				&& n < 10 && n >= 0)
 			{
