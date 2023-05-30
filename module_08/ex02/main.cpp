@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:58:36 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/19 00:20:23 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:07:56 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,25 +94,3 @@ int main()
 	std::list<int> l(mlist);
 	return 0;
 }
-
-// int main ()
-// {
-// 	std::vector<int> myvector;
-// 	for (int i=1; i<=5; i++) myvector.push_back(i);
-
-// 	std::cout << "myvector contains:";
-// 	std::vector<int>::iterator it = myvector.begin();	
-// 	std::cout << ' ' << *it;
-// 	std::cout << ' ' << *--it;
-// 	std::cout << ' ' << *--it;
-// 	std::cout << ' ' << *--it;
-// 	std::cout << ' ' << *--it;
-// 	std::cout << ' ' << *--it;
-// 	std::cout << ' ' << *++it;
-// 	std::cout << ' ' << *++it;
-// 	std::cout << ' ' << *++it;
-// 	std::cout << ' ' << *++it;
-// 	std::cout << '\n';
-
-// 	return 0;
-// }

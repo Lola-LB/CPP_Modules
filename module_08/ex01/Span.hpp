@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 21:05:49 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/18 15:18:46 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:01:53 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <string>
 # include <vector>
 # include <algorithm>
+# include <iterator>
+# include <cstdlib>
 
 class Span
 {
@@ -28,9 +30,6 @@ class Span
 		// Destructor
 		~Span( void );
 		
-		// Operators
-		Span &	operator=( const Span &assign );
-
 		// Other
 		void	addNumber( int number );
 		void	addRange( std::vector<int>::iterator first, std::vector<int>::iterator last );
@@ -39,9 +38,12 @@ class Span
 		
 	private:
 		Span( void );
+		
+		// Operators
+		Span &	operator=( const Span &assign );
+		
 		std::vector<int>	_stock;
 		const unsigned int	_N;
-		
 };
 
 #endif

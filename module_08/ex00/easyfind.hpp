@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:49:05 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/17 20:59:37 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:48:15 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@
 # include <algorithm>
 
 template <typename T>
-void easyfind(const T & container, int n)
+typename T::iterator easyfind(T & container, int n)
 {
-	if (std::find(container.begin(), container.end(), n) == container.end())
+	typename T::iterator it = std::find(container.begin(), container.end(), n);
+	if (it == container.end())
 		throw std::out_of_range("Non existent element");
+	return (it);
 }
+
 #endif
