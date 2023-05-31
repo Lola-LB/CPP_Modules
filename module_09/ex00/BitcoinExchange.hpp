@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 17:03:26 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/22 11:09:25 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:07:14 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,21 @@
 # define BITCOINEXCHANGE_HPP
 
 # include <iostream>
+# include <algorithm>
 # include <iomanip>
 # include <fstream>
 # include <sstream>
 # include <string>
-# include <vector>
+# include <map>
 # include <ctime>
 
-typedef std::vector < std::pair < std::string, double > > valVect_t;
+typedef std::map < std::string, double > priceMap_t;
+typedef std::map < std::string, double > priceMap_t;
 
-valVect_t	valVect(std::ifstream & db, const char delim);
-void		computePrices(valVect_t & prices, const valVect_t & quantities);
-double		findPrice(valVect_t & prices, std::time_t date);
+std::tm 	getDate(std::string input);
+int			compDate(std::tm date, std::tm d);
+priceMap_t	getPriceMap(std::ifstream & db, const char delim);
+void		computePrices(priceMap_t & prices, std::ifstream & input);
+double		findPrice(priceMap_t & prices, std::tm date);
 
 #endif

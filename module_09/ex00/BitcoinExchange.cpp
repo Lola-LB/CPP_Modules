@@ -6,20 +6,55 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 17:03:28 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/04/22 11:19:27 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:14:09 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-// bool isFloatNumber(const std::stringstream ss)
-// {
-// 	if (ss.)
-// }
-
-valVect_t	valVect(std::ifstream & db, const char delim)
+bool	validDate(std::tm date)
 {
-	valVect_t	valVect;
+	static const int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int days = daysInMonth[date.tm_mon - 1];
+	std::tm min_date = {};
+
+	min_date.tm_year = 2009;
+	min_date.tm_mon = 01;
+	min_date.tm_mday = 02;
+    if (date.tm_mon == 2 && (date.tm_year % 4 == 0
+		&& (date.tm_year % 100 != 0 || date.tm_year % 400 == 0)))
+        days = 29;
+	return (date.tm_year > 2008
+		&& date.tm_mon > 0 && date.tm_mon < 13
+		&& date.tm_mday > 0 && date.tm_mday < days
+		&& compDate(date, min_date) >= 0);
+}
+
+std::tm 	getDate(std::string input)
+{
+	std::istringstream	iss(input);
+	std::tm				date;
+    char				delimiter;
+
+    if (!(iss >> date.tm_year >> delimiter && delimiter == '-'
+		&& iss >> date.tm_mon >> delimiter >> date.tm_mday && delimiter == '-' )
+		|| !validDate(date))
+	{
+		date.tm_year = -1;
+	}
+	return date;
+}
+
+int	compDate(std::tm date, std::tm d)
+{
+	return (100 * ((date.tm_year > d.tm_year) - (date.tm_year < d.tm_year))
+		+ 10 * ((date.tm_mon > d.tm_mon) - (date.tm_mon < d.tm_mon)) 
+		+ ((date.tm_mday > d.tm_mday) - (date.tm_mday < d.tm_mday)));
+}
+
+priceMap_t	getPriceMap(std::ifstream & db, const char delim)
+{
+	priceMap_t	valMap;
     std::string	line;
     double 		value;
 
@@ -31,53 +66,60 @@ valVect_t	valVect(std::ifstream & db, const char delim)
 			value = -1;
 		std::string::iterator end_pos = std::remove(line.begin(), line.end(), ' ');
 		line.erase(end_pos, line.end());
-		valVect.push_back(std::pair < std::string, double > (line, value));
+		valMap.insert(std::pair<std::string, double>(line, value));
     }
-	return (valVect);
+	return (valMap);
 }
 
-double		findPrice(valVect_t & prices, const std::time_t date)
+double		findPrice(priceMap_t & prices, std::tm date)
 {
-	std::tm		t = {};
-	std::time_t	d;
+	std::tm		d = {};
+	int			compare;
 	double		price = prices.begin()->second;
 
-	for (valVect_t::iterator it = prices.begin(); it != prices.end(); ++it)
+	for (priceMap_t::iterator it = prices.begin(); it != prices.end(); ++it)
 	{
-		std::istringstream ss(it->first);
-		ss >> std::get_time(&t, "%Y-%m-%d");
-		d = std::mktime(&t);
-		if (d == date)
+		d = getDate(it->first);
+		compare = compDate(date, d);
+		if (compare == 0)
 			return (it->second);
-		if (d > date)
+		else if (compare < 0)
 			return (price);
 		price = it->second;
 	}
 	return (price);
 }
 
-void	computePrices(valVect_t & prices, valVect_t & quantities)
+void	computePrices(priceMap_t & prices, std::ifstream & input)
 {
-	double	price;
-	std::tm	date = {};
+	double		price;
+	std::tm		date = {};
+	std::string	line;
+	std::string	test;
+    double 		value;
 
-	for (valVect_t::iterator it = quantities.begin(); it != quantities.end(); ++it)
+    while (std::getline(input, line))
 	{
-		if (it->first == "date")
+		if (line == "date | value")
 			continue;
-		std::istringstream ss(it->first);
-		ss >> std::get_time(&date, "%Y-%m-%d");
-		if (ss.fail())
-			std::cerr << "Error: bad input" << " => " << it->first << std::endl;
-		else if (it->second < 0)
+		std::stringstream ss (line);
+		std::getline(ss, line, '|');
+		if (!(ss >> value) || (ss >> test))
+			value = -1;
+		date = getDate(line);
+		if (date.tm_year == -1)
+			std::cerr << "Error: bad input" << " => " << line << std::endl;
+		else if (value < 0)
 			std::cerr << "Error: not a positive number." << std::endl;
-		else if (it->second > 1000)
+		else if (value > 1000)
 			std::cerr << "Error: too large a number." << std::endl;
 		else
 		{
-			price = findPrice(prices, std::mktime(&date));
-			std::cout << std::defaultfloat << it->first << " => "
-					  << it->second << " = " << std::setprecision(10) << price * it->second << std::endl;
+			price = findPrice(prices, date);
+			std::cout.unsetf(std::ios_base::floatfield);
+			std::cout << line << "=> "
+					  << value << " = " << std::setprecision(10)
+					  << price * value << std::endl;
 		}
 	}
 }
