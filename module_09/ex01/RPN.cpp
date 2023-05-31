@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 11:21:38 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/05/31 14:37:09 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:38:19 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ bool	singleOP(std::stack<long> & s, char c)
 bool is_number(const std::string& s)
 {
     std::string::const_iterator it = s.begin();
-    while (it != s.end() && std::isdigit(*it)) ++it;
+    while (it != s.end() && std::isdigit(*it))
+		++it;
     return (!s.empty() && it == s.end());
 }
 

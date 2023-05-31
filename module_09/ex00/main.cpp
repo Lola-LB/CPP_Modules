@@ -6,7 +6,7 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 17:03:20 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/05/31 13:55:14 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:38:41 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(int ac, char **av)
 	if (data.fail())
 		std::cerr << "Error: " << std::strerror(errno) << std::endl;
 	priceMap_t prices = getPriceMap(data, ',');
-	// priceMap_t prices;
 	std::ifstream input(av[1]);
 	if (input.fail())
 		std::cerr << "Error: " << std::strerror(errno) << std::endl;
