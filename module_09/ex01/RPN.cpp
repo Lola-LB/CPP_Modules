@@ -6,36 +6,28 @@
 /*   By: lle-bret <lle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 11:21:38 by lle-bret          #+#    #+#             */
-/*   Updated: 2023/05/31 14:28:56 by lle-bret         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:37:09 by lle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-bool	singleOP(std::stack<unsigned long> & s, char c)
+bool	singleOP(std::stack<long> & s, char c)
 {
-	unsigned long	n;
-	unsigned long	m;
+	long	n;
+	long	m;
 
-	if (s.empty())
+	if (s.size() < 2)
 		return(false);
 	m = s.top();
 	s.pop();
-	if (s.empty())
-		return(false);
 	n = s.top();
 	s.pop();
 	switch (c)
 	{
-		case '+':
-			s.push(n + m);
-			break;
-		case '-':
-			s.push(n - m);
-			break;
-		case '*':
-			s.push(n * m);
-			break;
+		case '+': s.push(n + m); break;
+		case '-': s.push(n - m); break;
+		case '*': s.push(n * m); break;
 		case '/':
 			if ( m == 0 )
 				return (false);
@@ -51,14 +43,14 @@ bool is_number(const std::string& s)
 {
     std::string::const_iterator it = s.begin();
     while (it != s.end() && std::isdigit(*it)) ++it;
-    return !s.empty() && it == s.end();
+    return (!s.empty() && it == s.end());
 }
 
 int	calculateRPN(std::string rpn)
 {
-	std::stack<unsigned long>	s;
-	std::stringstream			ss(rpn);
-	unsigned long				n;
+	std::stack<long>	s;
+	std::stringstream	ss(rpn);
+	long				n;
 
 	while (std::getline(ss, rpn, ' '))
 	{
@@ -69,18 +61,12 @@ int	calculateRPN(std::string rpn)
 			s.push(n);
 		}
 		else if (rpn.size() != 1 || !singleOP(s, rpn[0]))
-		{
-			std::cerr << "Error" << std::endl;
 			return 1;
-		}
 	}
 	n = s.top();
 	s.pop();
 	if (!s.empty())
-	{
-		std::cerr << "Error" << std::endl;
 		return 1;
-	}
 	std::cout << n << std::endl;
 	return 0;
 }
